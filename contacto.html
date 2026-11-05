@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoVida | Contacto</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { margin: 0; font-family: Arial, sans-serif; background: #DDF2E1; color: #333; }
+        header { text-align: center; padding: 25px; }
+        header h1 { color: #14532D; font-size: 45px; }
+        nav { background: #B7E4C7; padding: 15px; text-align: center; }
+        nav a { display: inline-block; background: white; color: #14532D; text-decoration: none; padding: 12px; margin: 5px; border-radius: 8px; font-weight: bold; }
+        nav a:hover { background: #14532D; color: white; }
+        main { max-width: 800px; margin: auto; padding: 20px; }
+        section { background: white; padding: 25px; margin-bottom: 20px; border-radius: 15px; }
+        h2 { color: #14532D; }
+        p { font-size: 17px; line-height: 1.6; }
+        label { display: block; margin-top: 15px; font-weight: bold; }
+        input, textarea { width: 100%; padding: 12px; margin-top: 7px; border: 1px solid #aaa; border-radius: 7px; font: inherit; }
+        textarea { min-height: 130px; resize: vertical; }
+        button { background: #14532D; color: white; border: none; padding: 13px 20px; margin-top: 18px; border-radius: 8px; cursor: pointer; font-size: 16px; }
+        button:hover { background: #386641; }
+        #respuesta { color: #14532D; font-weight: bold; }
+        .boton { display: inline-block; background: #14532D; color: white; padding: 12px 20px; text-decoration: none; border-radius: 8px; }
+        footer { text-align: center; padding: 20px; color: #386641; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>✉️ Contacto EcoVida</h1>
+    <p>Comparte tus ideas para cuidar el planeta</p>
+</header>
+
+<nav>
+    <a href="index.html">Inicio</a>
+    <a href="consejos.html">Consejos</a>
+    <a href="reciclaje.html">Reciclaje</a>
+    <a href="galeria.html">Galería</a>
+    <a href="contacto.html">Contacto</a>
+    <a href="ecoretos.html">EcoRetos 🎮</a>
+</nav>
+
+<main>
+    <section>
+        <h2>Contáctanos</h2>
+        <p>Utiliza este formulario para compartir sugerencias, ideas o comentarios sobre el cuidado del medio ambiente.</p>
+
+        <form id="formulario">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="correo">Correo electrónico:</label>
+            <input type="email" id="correo" name="correo" required>
+
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje" required></textarea>
+
+            <button type="submit">Enviar mensaje</button>
+        </form>
+
+        <p id="respuesta" role="status"></p>
+    </section>
+
+    <section>
+        <h2>¡Sigamos cuidando nuestro planeta!</h2>
+        <p>Con la participación de todos podemos construir un futuro más limpio y sostenible.</p>
+        <a class="boton" href="index.html">Volver al inicio</a>
+    </section>
+</main>
+
+<footer>EcoVida 🌎 | Gracias por interesarte en el medio ambiente</footer>
+
+<script>
+    document.getElementById("formulario").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const nombre = document.getElementById("nombre").value.trim();
+
+        document.getElementById("respuesta").textContent =
+            "¡Gracias, " + nombre + "! El formulario se completó correctamente. Para enviar el mensaje realmente, hace falta conectar un servicio de recepción.";
+
+        this.reset();
+    });
+</script>
+
+</body>
+</html>

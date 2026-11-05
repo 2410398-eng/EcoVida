@@ -1,0 +1,336 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoVida | EcoRetos</title>
+
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #DDF2E1;
+            color: #333;
+        }
+
+        header {
+            text-align: center;
+            padding: 25px;
+        }
+
+        header h1 {
+            color: #14532D;
+            font-size: 45px;
+            margin: 0;
+        }
+
+        header p { color: #386641; }
+
+        nav {
+            background: #B7E4C7;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            display: inline-block;
+            background: white;
+            color: #14532D;
+            text-decoration: none;
+            padding: 12px 18px;
+            margin: 5px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            background: #14532D;
+            color: white;
+        }
+
+        main {
+            max-width: 850px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        section {
+            background: white;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        h2 { color: #14532D; }
+
+        .marcador {
+            background: #E6F4E8;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .residuo {
+            background: #E6F4E8;
+            border: 2px solid #B7E4C7;
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 350px;
+            margin: 25px auto;
+        }
+
+        .emoji { font-size: 70px; }
+
+        .opciones {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            max-width: 500px;
+            margin: 20px auto;
+        }
+
+        .opcion {
+            background: #E6F4E8;
+            border: 2px solid #B7E4C7;
+            border-radius: 10px;
+            padding: 18px 8px;
+            color: #14532D;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .opcion:hover {
+            background: #B7E4C7;
+        }
+
+        .opcion:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .boton {
+            background: #14532D;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            margin: 5px;
+        }
+
+        .boton:hover { background: #237541; }
+
+        #mensaje {
+            min-height: 25px;
+            font-weight: bold;
+        }
+
+        .oculto { display: none; }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #386641;
+        }
+
+        @media (max-width: 500px) {
+            header h1 { font-size: 34px; }
+            main { padding: 12px; }
+            section { padding: 18px 12px; }
+            .opcion { font-size: 14px; }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>EcoVida 🌎</h1>
+    <p>¡Pequeñas acciones, grandes cambios!</p>
+</header>
+
+<nav>
+    <a href="index.html">Inicio</a>
+    <a href="consejos.html">Consejos</a>
+    <a href="reciclaje.html">Reciclaje</a>
+    <a href="galeria.html">Galería</a>
+    <a href="contacto.html">Contacto</a>
+    <a href="ecoretos.html">EcoRetos 🎮</a>
+</nav>
+
+<main>
+    <section>
+        <h2>🎮 ¡Clasifica la basura!</h2>
+        <p>
+            Demuestra tus conocimientos sobre el reciclaje.
+            Elige el contenedor correcto para cada residuo.
+        </p>
+        <p>⭐ ¡Gana 10 puntos por cada respuesta correcta!</p>
+    </section>
+
+    <section id="juego">
+        <h2>♻️ Tu reto ecológico</h2>
+
+        <div class="marcador">
+            Puntos: <span id="puntos">0</span>
+            &nbsp; | &nbsp;
+            Residuo: <span id="numero">1</span>/8
+        </div>
+
+        <div class="residuo">
+            <div class="emoji" id="emoji">🍌</div>
+            <h3 id="nombre">Cáscara de plátano</h3>
+            <p>¿En qué categoría debe depositarse?</p>
+        </div>
+
+        <div class="opciones">
+            <button class="opcion" data-tipo="organico">
+                🍂<br>Orgánicos
+            </button>
+            <button class="opcion" data-tipo="papel">
+                📦<br>Papel y cartón
+            </button>
+            <button class="opcion" data-tipo="plastico">
+                🥤<br>Plástico y metal
+            </button>
+            <button class="opcion" data-tipo="vidrio">
+                🍾<br>Vidrio
+            </button>
+        </div>
+
+        <p id="mensaje" aria-live="polite">
+            ¡Selecciona una respuesta!
+        </p>
+
+        <button class="boton" id="reiniciar">
+            🔄 Reiniciar juego
+        </button>
+    </section>
+
+    <section id="final" class="oculto">
+        <h2>🏆 ¡Reto terminado!</h2>
+        <h3 id="resultado"></h3>
+        <p id="consejo"></p>
+        <button class="boton" id="otraVez">Jugar otra vez</button>
+    </section>
+</main>
+
+<footer>
+    <p>🌱 EcoVida | Juntos podemos cuidar nuestro planeta.</p>
+</footer>
+
+<script>
+const residuos = [
+    { nombre: "Cáscara de plátano", emoji: "🍌", tipo: "organico" },
+    { nombre: "Periódico limpio", emoji: "📰", tipo: "papel" },
+    { nombre: "Botella de plástico", emoji: "🧴", tipo: "plastico" },
+    { nombre: "Frasco de vidrio", emoji: "🫙", tipo: "vidrio" },
+    { nombre: "Restos de verduras", emoji: "🥬", tipo: "organico" },
+    { nombre: "Caja de cartón", emoji: "📦", tipo: "papel" },
+    { nombre: "Lata de aluminio", emoji: "🥫", tipo: "plastico" },
+    { nombre: "Botella de vidrio", emoji: "🍾", tipo: "vidrio" }
+];
+
+let indice = 0;
+let puntos = 0;
+let bloqueado = false;
+let temporizador;
+
+const botones = document.querySelectorAll(".opcion");
+
+function mostrarResiduo() {
+    document.getElementById("emoji").textContent =
+        residuos[indice].emoji;
+
+    document.getElementById("nombre").textContent =
+        residuos[indice].nombre;
+
+    document.getElementById("numero").textContent = indice + 1;
+    document.getElementById("puntos").textContent = puntos;
+    document.getElementById("mensaje").textContent =
+        "¡Selecciona una respuesta!";
+
+    botones.forEach(b => b.disabled = false);
+    bloqueado = false;
+}
+
+function responder(tipo) {
+    if (bloqueado) return;
+
+    if (tipo === residuos[indice].tipo) {
+        bloqueado = true;
+        puntos += 10;
+
+        document.getElementById("puntos").textContent = puntos;
+        document.getElementById("mensaje").textContent =
+            "✅ ¡Correcto! ¡Muy bien!";
+        
+        botones.forEach(b => b.disabled = true);
+
+        temporizador = setTimeout(() => {
+            indice++;
+
+            if (indice >= residuos.length) {
+                terminarJuego();
+            } else {
+                mostrarResiduo();
+            }
+        }, 900);
+
+    } else {
+        document.getElementById("mensaje").textContent =
+            "❌ ¡Inténtalo de nuevo!";
+    }
+}
+
+function terminarJuego() {
+    document.getElementById("juego").classList.add("oculto");
+    document.getElementById("final").classList.remove("oculto");
+
+    document.getElementById("resultado").textContent =
+        "Tu puntuación: " + puntos + " de 80 puntos.";
+
+    document.getElementById("consejo").textContent =
+        puntos === 80
+        ? "🌟 ¡Excelente! Eres un campeón del reciclaje."
+        : "🌱 Sigue aprendiendo. ¡Cada acción cuenta!";
+}
+
+function reiniciarJuego() {
+    clearTimeout(temporizador);
+    indice = 0;
+    puntos = 0;
+    bloqueado = false;
+
+    document.getElementById("juego").classList.remove("oculto");
+    document.getElementById("final").classList.add("oculto");
+
+    mostrarResiduo();
+}
+
+botones.forEach(boton => {
+    boton.addEventListener("click", () => {
+        responder(boton.dataset.tipo);
+    });
+});
+
+document.getElementById("reiniciar").addEventListener(
+    "click", reiniciarJuego
+);
+
+document.getElementById("otraVez").addEventListener(
+    "click", reiniciarJuego
+);
+
+mostrarResiduo();
+</script>
+
+</body>
+</html>

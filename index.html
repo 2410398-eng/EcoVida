@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoVida | Inicio</title>
+
+
+    <style>
+        * { box-sizing: border-box; }
+        body { margin: 0; font-family: Arial, sans-serif; background: #DDF2E1; color: #333; }
+        header { text-align: center; padding: 30px 15px; }
+        header h1 { color: #14532D; font-size: 60px; margin: 0; }
+        header p { color: #386641; font-size: 18px; }
+        nav { background: #B7E4C7; padding: 15px; text-align: center; }
+        nav a { display: inline-block; background: white; color: #14532D; text-decoration: none; padding: 12px 18px; margin: 5px; border-radius: 10px; font-weight: bold; }
+        nav a:hover { background: #14532D; color: white; }
+        main { max-width: 1100px; margin: auto; padding: 20px; }
+        section { background: white; padding: 25px; margin-bottom: 25px; border-radius: 15px; text-align: center; }
+        h2 { color: #14532D; }
+        p { font-size: 17px; line-height: 1.6; }
+        .principal { width: 100%; max-width: 600px; height: 300px; object-fit: contain; border-radius: 12px; }
+        .tarjetas { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+        .tarjeta { background: #E6F4E8; padding: 15px; border-radius: 12px; }
+        .tarjeta img { width: 100%; height: 200px; object-fit: contain; }
+        .boton { display: inline-block; background: #14532D; color: white; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; }
+        footer { text-align: center; padding: 20px; color: #386641; }
+        @media (max-width: 600px) {
+            header h1 { font-size: 42px; }
+            nav a { padding: 10px; margin: 3px; }
+            main { padding: 12px; }
+        }
+    </style>   
+</head>
+<body>
+
+<header>
+    <h1>EcoVida 🌎</h1>
+    <p><strong>¡Pequeñas acciones, grandes cambios!</strong></p>
+</header>
+
+<nav>
+    <a href="index.html">Inicio</a>
+    <a href="consejos.html">Consejos</a>
+    <a href="reciclaje.html">Reciclaje</a>
+    <a href="galeria.html">Galería</a>
+    <a href="contacto.html">Contacto</a>
+    <a href="ecoretos.html">EcoRetos 🎮</a>
+
+</nav>
+
+<main>
+    <section>
+        <h2>¡Cuida nuestro planeta!</h2>
+        <strong>
+        <p>Bienvenido a EcoVida, un espacio para aprender a proteger el medio ambiente desde nuestra casa, escuela y comunidad.</p></strong>
+        <img class="principal" src="planeta.jfif" alt="Planeta Tierra">
+
+        <strong><p>Con pequeñas acciones podemos construir un futuro más limpio y saludable.</p></strong>
+    </section>
+
+    <section>
+        <h2>Conoce EcoVida</h2>
+        <div class="tarjetas">
+            <div class="tarjeta">
+                <h3>🌱 Consejos</h3>
+                <img class="principal" src="consejos.jpg" alt="Consejos">
+               <strong><p>Descubre hábitos sencillos para cuidar la naturaleza.</p></strong>
+                <a class="boton" href="consejos.html">Ver consejos</a>
+            </div>
+            <div class="tarjeta">
+                <h3>♻️ Reciclaje</h3>
+                 <img class="principal" src="reciclaje2.jpg" alt="Reciclaje">
+                <strong><p>Aprende a separar y aprovechar los residuos.</p></strong>
+                <a class="boton" href="reciclaje.html">Aprender</a>
+            </div>
+            <div class="tarjeta">
+                <h3>🌳 Galería</h3>
+                <img class="principal" src="galerias.avif" alt="galerias">
+                <strong><p>Explora imágenes relacionadas con el medio ambiente.</p></strong>
+                <a class="boton" href="galeria.html">Ver galería</a>
+            </div>
+        </div>
+    </section>
+</main>
+<strong>
+<footer>EcoVida 🌎 | ¡Cuidemos nuestro planeta!</footer>
+</strong>
+</body>
+</html>
